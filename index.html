@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Undangan Sidang Skripsi Manajemen - Muhammad Hafiz</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display untuk kesan akademik/formal & Plus Jakarta Sans untuk keterbacaan modern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons (Ikon Vektor Profesional) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            950: '#060c18',
+                            900: '#0a1428',
+                            800: '#122240',
+                            700: '#1b3159',
+                        },
+                        gold: {
+                            300: '#f3d999',
+                            400: '#e2bc6b',
+                            500: '#c99e44',
+                            600: '#a67c2e',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(24px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Kustomisasi Scrollbar Non-Default */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060c18;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #c99e44 0%, #7c5c1e 100%);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e2bc6b;
+        }
+
+        /* Mencegah efek pantul (overscroll) kasar di iOS & Android */
+        html, body {
+            overscroll-behavior-y: none;
+            -webkit-tap-highlight-color: transparent;
+            background-color: #060c18;
+            color: #f8fafc;
+        }
+
+        /* Pola Latar Belakang Geometris Halus */
+        .bg-luxury-pattern {
+            background-color: #060c18;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(201, 158, 68, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(27, 49, 89, 0.25) 0%, transparent 50%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+        }
+
+        /* Efek Kaca (Glassmorphism) */
+        .glass-card {
+            background: rgba(18, 34, 64, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(201, 158, 68, 0.22);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65);
+        }
+
+        /* Kursor Efek Mesin Tik */
+        .typewriter-cursor::after {
+            content: '|';
+            display: inline-block;
+            color: #e2bc6b;
+            margin-left: 2px;
+            animation: blink 0.8s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Bingkai Foto Gradien Emas */
+        .gold-ring {
+            background: linear-gradient(135deg, #f3d999 0%, #c99e44 50%, #785518 100%);
+            padding: 3px;
+        }
+    </style>
+</head>
+<body class="bg-luxury-pattern min-h-screen font-sans antialiased selection:bg-gold-500 selection:text-navy-950 overflow-x-hidden">
+
+    <!-- =====================================================================
+         KONFIGURASI ASET GITHUB (GANTI TAUTAN DI BAWAH INI DENGAN URL GITHUB ANDA)
+         Contoh URL Raw GitHub: 
+         https://raw.githubusercontent.com/username/repo/main/foto.jpg
+         https://raw.githubusercontent.com/username/repo/main/lagu.mp3
+    ====================================================================== -->
+    <audio id="bg-music" loop preload="auto">
+        <!-- GANTI SRC DI BAWAH INI DENGAN LINK RAW FILE MP3 GITHUB ANDA -->
+        <source src="https://raw.githubusercontent.com/USERNAME_ANDA/NAMA_REPO/main/lagu-latar.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- =====================================================================
+         LAYAR PEMBUKA (WELCOME GATE)
+         Catatan Teknis: Browser modern (iOS Safari & Android Chrome) mewajibkan 
+         interaksi satu kali sentuhan untuk mengizinkan Autoplay Audio & Fullscreen.
+    ====================================================================== -->
+    <div id="welcome-gate" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-navy-950/95 backdrop-blur-xl px-6 text-center transition-all duration-700">
+        <div class="max-w-md w-full glass-card rounded-3xl p-8 sm:p-10 border border-gold-500/30 relative overflow-hidden">
+            <!-- Aksen Sudut -->
+            <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gold-500/10 border border-gold-400/30 flex items-center justify-center text-gold-400">
+                <i data-lucide="graduation-cap" class="w-8 h-8 stroke-[1.5]"></i>
+            </div>
+
+            <p class="text-xs uppercase tracking-[0.25em] text-gold-400 font-semibold mb-2">Undangan Resmi Akademik</p>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug mb-3">
+                Sidang Skripsi Manajemen
+            </h2>
+            <p class="text-sm text-slate-300/80 mb-8 leading-relaxed">
+                Kepada Yth. Bapak/Ibu/Saudara/i, silakan buka undangan digital ini untuk melihat detail jadwal dan lokasi pelaksanaan.
+            </p>
+
+            <button id="btn-open-invitation" class="group relative w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 text-navy-950 font-bold text-sm tracking-wide uppercase shadow-lg shadow-gold-500/20 hover:shadow-gold-400/40 active:scale-[0.98] transition-all duration-300 cursor-pointer">
+                <i data-lucide="mail-open" class="w-5 h-5 stroke-[2]"></i>
+                <span>Buka Undangan</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         KONTROL AUDIO & LAYAR PENUH MENGAMBANG (FLOATING CONTROLS)
+    ====================================================================== -->
+    <div id="floating-controls" class="fixed bottom-5 right-5 z-40 flex items-center gap-2.5 opacity-0 pointer-events-none transition-opacity duration-500">
+        <!-- Tombol Toggle Layar Penuh -->
+        <button id="btn-fullscreen" aria-label="Layar Penuh" title="Layar Penuh" class="w-11 h-11 rounded-full glass-card flex items-center justify-center text-gold-300 hover:text-white hover:border-gold-400 active:scale-95 transition-all cursor-pointer">
+            <i id="icon-fullscreen" data-lucide="maximize" class="w-4 h-4"></i>
+        </button>
+
+        <!-- Tombol Toggle Musik -->
+        <button id="btn-audio" aria-label="Putar atau Jeda Musik" title="Musik Latar" class="w-11 h-11 rounded-full glass-card flex items-center justify-center text-gold-300 hover:text-white hover:border-gold-400 active:scale-95 transition-all cursor-pointer relative">
+            <span id="audio-ping" class="hidden absolute inset-0 rounded-full border border-gold-400 animate-ping opacity-30"></span>
+            <i id="icon-audio" data-lucide="volume-2" class="w-4 h-4"></i>
+        </button>
+    </div>
+
+    <!-- =====================================================================
+         KONTEN UTAMA UNDANGAN
+    ====================================================================== -->
+    <main id="main-content" class="min-h-screen w-full flex flex-col items-center justify-center px-4 py-10 sm:py-16 opacity-0 transition-opacity duration-1000">
+        
+        <article class="w-full max-w-xl glass-card rounded-3xl p-6 sm:p-10 md:p-12 relative overflow-hidden">
+            
+            <!-- Garis Dekoratif Atas -->
+            <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent opacity-80"></div>
+
+            <!-- Header / Judul Utama -->
+            <header class="text-center mb-8">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-950/70 border border-gold-500/25 text-gold-400 text-[11px] font-semibold uppercase tracking-[0.2em] mb-4">
+                    <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                    <span>Ujian Akhir Program Sarjana</span>
+                </div>
+                
+                <h1 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-gold-300 tracking-tight leading-tight">
+                    UNDANGAN SIDANG SKRIPSI MANAJEMEN
+                </h1>
+                
+                <div class="flex items-center justify-center gap-3 mt-4">
+                    <span class="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold-500/60"></span>
+                    <i data-lucide="book-open" class="w-4 h-4 text-gold-400"></i>
+                    <span class="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold-500/60"></span>
+                </div>
+            </header>
+
+            <!-- Bagian Foto Profil -->
+            <section class="flex flex-col items-center text-center mb-8">
+                <div class="relative mb-5 group">
+                    <!-- Efek Cahaya Belakang Foto -->
+                    <div class="absolute -inset-1.5 rounded-full bg-gold-500/20 blur-md group-hover:bg-gold-400/30 transition-all duration-500"></div>
+                    
+                    <!-- Bingkai Foto -->
+                    <div class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full gold-ring shadow-2xl">
+                        <div class="w-full h-full rounded-full overflow-hidden bg-navy-900">
+                            <!-- GANTI SRC DI BAWAH INI DENGAN LINK RAW FOTO GITHUB ANDA -->
+                            <img 
+                                id="student-photo"
+                                src="https://raw.githubusercontent.com/USERNAME_ANDA/NAMA_REPO/main/foto-hafiz.jpg" 
+                                alt="Foto Muhammad Hafiz"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a1428/e2bc6b?text=MUHAMMAD+HAFIZ';"
+                                class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Lencana Status -->
+                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-navy-950 border border-gold-400/40 shadow-md flex items-center gap-1.5 whitespace-nowrap">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-200">Kandidat Sarjana</span>
+                    </div>
+                </div>
+
+                <!-- Identitas Mahasiswa -->
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white tracking-wide mt-2">
+                    MUHAMMAD HAFIZ
+                </h2>
+                
+                <div class="mt-2 inline-flex items-center gap-2 px-4 py-1.5 rounded-lg bg-navy-950/60 border border-slate-700/60 text-gold-300 text-sm font-medium tracking-widest">
+                    <i data-lucide="hash" class="w-3.5 h-3.5 text-gold-500"></i>
+                    <span>NIM: 200410088</span>
+                </div>
+
+                <p class="mt-5 text-sm sm:text-base text-slate-300/90 leading-relaxed max-w-md">
+                    Dengan penuh rasa hormat dan syukur, saya mengundang Bapak/Ibu/Saudara/i untuk berkenan hadir serta memberikan doa restu pada Sidang Skripsi saya yang akan diselenggarakan pada:
+                </p>
+            </section>
+
+            <!-- Kartu Informasi Jadwal & Tempat -->
+            <section class="space-y-3.5 mb-8">
+                <!-- Hari & Tanggal -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-navy-950/60 border border-slate-800/80 hover:border-gold-500/30 transition-colors">
+                    <div class="w-11 h-11 rounded-xl bg-gold-500/10 border border-gold-400/20 flex items-center justify-center text-gold-400 shrink-0 mt-0.5">
+                        <i data-lucide="calendar-days" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Hari & Tanggal</p>
+                        <p class="text-base sm:text-lg font-semibold text-white mt-0.5">Rabu, 25 November 2026</p>
+                    </div>
+                </div>
+
+                <!-- Waktu / Pukul -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-navy-950/60 border border-slate-800/80 hover:border-gold-500/30 transition-colors">
+                    <div class="w-11 h-11 rounded-xl bg-gold-500/10 border border-gold-400/20 flex items-center justify-center text-gold-400 shrink-0 mt-0.5">
+                        <i data-lucide="clock" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Waktu Pelaksanaan</p>
+                        <p class="text-base sm:text-lg font-semibold text-white mt-0.5">10.30 WIB – Selesai</p>
+                    </div>
+                </div>
+
+                <!-- Lokasi / Tempat -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-navy-950/60 border border-slate-800/80 hover:border-gold-500/30 transition-colors">
+                    <div class="w-11 h-11 rounded-xl bg-gold-500/10 border border-gold-400/20 flex items-center justify-center text-gold-400 shrink-0 mt-0.5">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Lokasi Sidang</p>
+                        <p class="text-base sm:text-lg font-semibold text-white mt-0.5 leading-snug">
+                            Fakultas Ekonomi dan Bisnis<br>
+                            <span class="text-gold-300 font-medium text-sm sm:text-base">Ruang Lantai 3.4</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tombol Aksi: Terima Undangan -->
+            <footer class="text-center">
+                <button id="btn-accept-invitation" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-gold-600 via-gold-400 to-gold-500 text-navy-950 font-bold text-sm sm:text-base uppercase tracking-wider shadow-xl shadow-gold-500/20 hover:shadow-gold-400/35 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 stroke-[2.2]"></i>
+                    <span>Terima Undangan</span>
+                </button>
+                <p class="text-[11px] text-slate-400 mt-4 tracking-wide">
+                    Merupakan suatu kehormatan dan kebahagiaan bagi saya apabila Bapak/Ibu/Saudara/i berkenan hadir.
+                </p>
+            </footer>
+
+            <!-- Garis Dekoratif Bawah -->
+            <div class="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent opacity-50"></div>
+        </article>
+    </main>
+
+    <!-- =====================================================================
+         POP-UP KUSTOM PROFESIONAL DENGAN ANIMASI MESIN TIK (TYPEWRITER)
+    ====================================================================== -->
+    <div id="custom-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-navy-950/85 backdrop-blur-md transition-opacity duration-300 opacity-0">
+        <div id="modal-box" class="w-full max-w-md glass-card rounded-3xl p-7 sm:p-9 border border-gold-400/40 relative transform scale-95 transition-all duration-300 shadow-2xl">
+            
+            <!-- Tombol Tutup Pojok Kanan Atas -->
+            <button id="btn-close-modal-top" aria-label="Tutup Pop-up" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-navy-900/80 border border-slate-700/70 flex items-center justify-center text-slate-400 hover:text-white hover:border-gold-400 transition-colors cursor-pointer">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+            <!-- Ikon Konfirmasi -->
+            <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-400/30 flex items-center justify-center text-emerald-400 mb-5">
+                <i data-lucide="sparkles" class="w-7 h-7 stroke-[1.75]"></i>
+            </div>
+
+            <h3 id="modal-title" class="font-serif text-xl sm:text-2xl font-bold text-white mb-1">
+                Konfirmasi Diterima
+            </h3>
+            <p class="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-5">
+                Muhammad Hafiz &bull; 200410088
+            </p>
+
+            <!-- Kotak Teks Animasi Diketik -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-navy-950/75 border border-gold-500/20 min-h-[135px] flex items-start">
+                <p id="typewriter-text" class="text-sm sm:text-[15px] text-slate-200 leading-relaxed font-normal typewriter-cursor"></p>
+            </div>
+
+            <!-- Tombol Tutup Bawah -->
+            <div class="mt-6">
+                <button id="btn-close-modal-bottom" class="w-full py-3.5 px-5 rounded-xl bg-navy-800 hover:bg-navy-700 border border-gold-500/30 text-gold-300 font-semibold text-sm tracking-wide transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
+                    <i data-lucide="check" class="w-4 h-4"></i>
+                    <span>Selesai & Tutup</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         LOGIKA JAVASCRIPT (AUDIO, FULLSCREEN, ANIMASI TYPEWRITER & MODAL)
+    ====================================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inisialisasi seluruh ikon vektor Lucide
+            lucide.createIcons();
+
+            // Referensi Elemen DOM
+            const welcomeGate = document.getElementById('welcome-gate');
+            const btnOpenInvitation = document.getElementById('btn-open-invitation');
+            const mainContent = document.getElementById('main-content');
+            const floatingControls = document.getElementById('floating-controls');
+            
+            const bgMusic = document.getElementById('bg-music');
+            const btnAudio = document.getElementById('btn-audio');
+            const iconAudio = document.getElementById('icon-audio');
+            const audioPing = document.getElementById('audio-ping');
+            
+            const btnFullscreen = document.getElementById('btn-fullscreen');
+            const iconFullscreen = document.getElementById('icon-fullscreen');
+            
+            const btnAcceptInvitation = document.getElementById('btn-accept-invitation');
+            const customModal = document.getElementById('custom-modal');
+            const modalBox = document.getElementById('modal-box');
+            const btnCloseModalTop = document.getElementById('btn-close-modal-top');
+            const btnCloseModalBottom = document.getElementById('btn-close-modal-bottom');
+            const typewriterText = document.getElementById('typewriter-text');
+
+            let isPlaying = false;
+            let typewriterTimer = null;
+
+            // Teks pesan ucapan terima kasih untuk efek mesin tik
+            const thankYouMessage = "Terima kasih banyak telah menerima undangan sidang skripsi saya. Kehadiran serta doa restu dari Bapak/Ibu/Saudara/i sangat berarti dan menjadi motivasi besar bagi saya. Saya sangat berharap Anda dapat meluangkan waktu untuk hadir pada momen penting ini.";
+
+            // Fungsi untuk mengaktifkan mode Layar Penuh (Fullscreen)
+            function enterFullscreen() {
+                const elem = document.documentElement;
+                try {
+                    if (elem.requestFullscreen) {
+                        elem.requestFullscreen().catch(() => {});
+                    } else if (elem.webkitRequestFullscreen) { /* Safari iOS/macOS */
+                        elem.webkitRequestFullscreen();
+                    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                        elem.msRequestFullscreen();
+                    }
+                } catch (err) {
+                    // Fallback halus jika perangkat iOS membatasi fullscreen API pada elemen non-video
+                    window.scrollTo(0, 1);
+                }
+            }
+
+            // Fungsi toggle Fullscreen manual dari tombol melayang
+            function toggleFullscreen() {
+                if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                    enterFullscreen();
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen().catch(() => {});
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    }
+                }
+            }
+
+            // Pembaruan ikon Fullscreen saat status berubah
+            function updateFullscreenIcon() {
+                const isFull = !!(document.fullscreenElement || document.webkitFullscreenElement);
+                iconFullscreen.setAttribute('data-lucide', isFull ? 'minimize' : 'maximize');
+                lucide.createIcons();
+            }
+            document.addEventListener('fullscreenchange', updateFullscreenIcon);
+            document.addEventListener('webkitfullscreenchange', updateFullscreenIcon);
+
+            // Fungsi memutar musik latar
+            function playAudio() {
+                bgMusic.volume = 0.75;
+                const playPromise = bgMusic.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        isPlaying = true;
+                        iconAudio.setAttribute('data-lucide', 'volume-2');
+                        audioPing.classList.remove('hidden');
+                        lucide.createIcons();
+                    }).catch(() => {
+                        isPlaying = false;
+                        iconAudio.setAttribute('data-lucide', 'volume-x');
+                        audioPing.classList.add('hidden');
+                        lucide.createIcons();
+                    });
+                }
+            }
+
+            // Fungsi toggle Play/Pause musik
+            function toggleAudio() {
+                if (isPlaying) {
+                    bgMusic.pause();
+                    isPlaying = false;
+                    iconAudio.setAttribute('data-lucide', 'volume-x');
+                    audioPing.classList.add('hidden');
+                } else {
+                    playAudio();
+                }
+                lucide.createIcons();
+            }
+
+            // Aksi saat tombol "Buka Undangan" ditekan
+            btnOpenInvitation.addEventListener('click', () => {
+                // 1. Jalankan musik otomatis & masuk mode layar penuh
+                playAudio();
+                enterFullscreen();
+
+                // 2. Transisi menutup layar pembuka & menampilkan konten utama
+                welcomeGate.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
+                setTimeout(() => {
+                    welcomeGate.style.display = 'none';
+                }, 700);
+
+                mainContent.classList.remove('opacity-0');
+                mainContent.classList.add('animate-fade-in-up');
+
+                // 3. Tampilkan kontrol melayang
+                floatingControls.classList.remove('opacity-0', 'pointer-events-none');
+            });
+
+            // Upaya autoplay langsung jika browser mengizinkan tanpa klik
+            window.addEventListener('load', () => {
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    iconAudio.setAttribute('data-lucide', 'volume-2');
+                    audioPing.classList.remove('hidden');
+                    lucide.createIcons();
+                }).catch(() => {
+                    // Menunggu interaksi pengguna pada tombol "Buka Undangan"
+                });
+            });
+
+            // Event Listener Tombol Kontrol Melayang
+            btnAudio.addEventListener('click', toggleAudio);
+            btnFullscreen.addEventListener('click', toggleFullscreen);
+
+            // Fungsi Efek Animasi Mengetik (Typewriter)
+            function startTypewriter(text, speed = 32) {
+                clearInterval(typewriterTimer);
+                typewriterText.textContent = '';
+                typewriterText.classList.add('typewriter-cursor');
+                
+                let index = 0;
+                typewriterTimer = setInterval(() => {
+                    if (index < text.length) {
+                        typewriterText.textContent += text.charAt(index);
+                        index++;
+                    } else {
+                        clearInterval(typewriterTimer);
+                    }
+                }, speed);
+            }
+
+            // Fungsi Membuka Pop-up Kustom
+            function openModal() {
+                customModal.classList.remove('hidden');
+                customModal.classList.add('flex');
+                
+                // Sedikit jeda agar transisi CSS berjalan mulus
+                requestAnimationFrame(() => {
+                    customModal.classList.remove('opacity-0');
+                    modalBox.classList.remove('scale-95');
+                    modalBox.classList.add('scale-100');
+                });
+
+                // Mulai animasi mengetik setelah pop-up muncul
+                setTimeout(() => {
+                    startTypewriter(thankYouMessage, 30);
+                }, 250);
+            }
+
+            // Fungsi Menutup Pop-up Kustom
+            function closeModal() {
+                clearInterval(typewriterTimer);
+                customModal.classList.add('opacity-0');
+                modalBox.classList.remove('scale-100');
+                modalBox.classList.add('scale-95');
+
+                setTimeout(() => {
+                    customModal.classList.add('hidden');
+                    customModal.classList.remove('flex');
+                }, 300);
+            }
+
+            // Event Listener Tombol Terima Undangan & Penutup Modal
+            btnAcceptInvitation.addEventListener('click', openModal);
+            btnCloseModalTop.addEventListener('click', closeModal);
+            btnCloseModalBottom.addEventListener('click', closeModal);
+
+            // Menutup modal jika area gelap di luar kotak diklik
+            customModal.addEventListener('click', (e) => {
+                if (e.target === customModal) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
