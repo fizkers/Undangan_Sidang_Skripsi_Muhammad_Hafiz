@@ -212,13 +212,13 @@
                     <!-- Bingkai Foto -->
                     <div class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full gold-ring shadow-2xl">
                         <div class="w-full h-full rounded-full overflow-hidden bg-navy-900">
-                            <!-- Link Raw Foto GitHub Anda Sudah Terpasang -->
+                            <!-- Link Raw Foto GitHub Anda Sudah Terpasang (Posisi Disesuaikan) -->
                             <img 
                                 id="student-photo"
                                 src="https://raw.githubusercontent.com/fizkers/Undangan_Sidang_Skripsi_Muhammad_Hafiz/main/IMG_6361%2B%2B.JPG.jpeg" 
                                 alt="Foto Muhammad Hafiz"
                                 onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a1428/e2bc6b?text=MUHAMMAD+HAFIZ';"
-                                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                                class="w-full h-full object-cover object-[center_20%] scale-105 transition-transform duration-700 group-hover:scale-110"
                             >
                         </div>
                     </div>
@@ -265,7 +265,7 @@
                     </div>
                     <div>
                         <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Waktu Pelaksanaan</p>
-                        <p class="text-base sm:text-lg font-semibold text-white mt-0.5">10.30 WIB – Selesai</p>
+                        <p class="text-base sm:text-lg font-semibold text-white mt-0.5">10.30 - 12.00 WIB</p>
                     </div>
                 </div>
 
@@ -277,8 +277,8 @@
                     <div>
                         <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Lokasi Sidang</p>
                         <p class="text-base sm:text-lg font-semibold text-white mt-0.5 leading-snug">
-                            Fakultas Ekonomi dan Bisnis<br>
-                            <span class="text-gold-300 font-medium text-sm sm:text-base">Ruang Lantai 3.4</span>
+                            Universitas Malikussaleh<br>
+                            <span class="text-gold-300 font-medium text-sm sm:text-base">Fakultas Ekonomi dan Bisnis, Ruang Lantai 3.4</span>
                         </p>
                     </div>
                 </div>
@@ -328,11 +328,79 @@
                 <p id="typewriter-text" class="text-sm sm:text-[15px] text-slate-200 leading-relaxed font-normal typewriter-cursor"></p>
             </div>
 
-            <!-- Tombol Tutup Bawah -->
-            <div class="mt-6">
+            <!-- Tombol Aksi Modal (Souvenir & Tutup) -->
+            <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                <button id="btn-open-souvenir" class="w-full py-3.5 px-5 rounded-xl bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 text-navy-950 font-bold text-sm tracking-wide shadow-lg shadow-gold-500/20 hover:shadow-gold-400/35 transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
+                    <i data-lucide="gift" class="w-4 h-4 stroke-[2.2]"></i>
+                    <span>Souvenir</span>
+                </button>
                 <button id="btn-close-modal-bottom" class="w-full py-3.5 px-5 rounded-xl bg-navy-800 hover:bg-navy-700 border border-gold-500/30 text-gold-300 font-semibold text-sm tracking-wide transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
                     <i data-lucide="check" class="w-4 h-4"></i>
-                    <span>Selesai & Tutup</span>
+                    <span>Tutup</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         POP-UP KUSTOM SOUVENIR EKSKLUSIF
+    ====================================================================== -->
+    <div id="souvenir-modal" role="dialog" aria-modal="true" aria-labelledby="souvenir-title" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-navy-950/90 backdrop-blur-md transition-opacity duration-300 opacity-0">
+        <div id="souvenir-box" class="w-full max-w-md glass-card rounded-3xl p-7 sm:p-9 border border-gold-400/40 relative transform scale-95 transition-all duration-300 shadow-2xl">
+            
+            <!-- Tombol Tutup Pojok Kanan Atas -->
+            <button id="btn-close-souvenir-top" aria-label="Tutup Pop-up Souvenir" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-navy-900/80 border border-slate-700/70 flex items-center justify-center text-slate-400 hover:text-white hover:border-gold-400 transition-colors cursor-pointer">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+            <!-- Ikon Souvenir -->
+            <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-400/30 flex items-center justify-center text-gold-400 mb-5">
+                <i data-lucide="award" class="w-7 h-7 stroke-[1.75]"></i>
+            </div>
+
+            <h3 id="souvenir-title" class="font-serif text-xl sm:text-2xl font-bold text-white mb-1">
+                Apresiasi & Souvenir
+            </h3>
+            <p class="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-5">
+                Tanda Terima Kasih Kehadiran
+            </p>
+
+            <!-- Kartu Detail Souvenir -->
+            <div class="p-5 rounded-2xl bg-navy-950/80 border border-gold-500/25 space-y-4">
+                <p class="text-sm text-slate-300 leading-relaxed">
+                    Sebagai bentuk rasa syukur dan penghargaan karena telah meluangkan waktu melihat serta menerima undangan ini, tersedia bingkisan apresiasi khusus bagi Anda:
+                </p>
+
+                <div class="space-y-3 pt-1">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-gold-500/10 border border-gold-400/20 flex items-center justify-center text-gold-400 shrink-0 mt-0.5">
+                            <i data-lucide="bookmark-check" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-white">Cenderamata Eksklusif Sidang</h4>
+                            <p class="text-xs text-slate-400 mt-0.5 leading-relaxed">Dapat diambil langsung di lokasi setelah sesi sidang selesai dilaksanakan.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-gold-500/10 border border-gold-400/20 flex items-center justify-center text-gold-400 shrink-0 mt-0.5">
+                            <i data-lucide="ticket" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-white">Kode Apresiasi Tamu Undangan</h4>
+                            <div class="mt-1.5 inline-flex items-center gap-2 px-3 py-1 rounded-md bg-navy-900 border border-gold-500/30 text-gold-300 font-mono text-xs tracking-widest">
+                                <span>UNIMAL-FEB-2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tombol Tutup Bawah -->
+            <div class="mt-6">
+                <button id="btn-close-souvenir-bottom" class="w-full py-3.5 px-5 rounded-xl bg-navy-800 hover:bg-navy-700 border border-gold-500/30 text-gold-300 font-semibold text-sm tracking-wide transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
+                    <i data-lucide="check-circle" class="w-4 h-4"></i>
+                    <span>Selesai</span>
                 </button>
             </div>
         </div>
@@ -366,6 +434,12 @@
             const btnCloseModalTop = document.getElementById('btn-close-modal-top');
             const btnCloseModalBottom = document.getElementById('btn-close-modal-bottom');
             const typewriterText = document.getElementById('typewriter-text');
+
+            const btnOpenSouvenir = document.getElementById('btn-open-souvenir');
+            const souvenirModal = document.getElementById('souvenir-modal');
+            const souvenirBox = document.getElementById('souvenir-box');
+            const btnCloseSouvenirTop = document.getElementById('btn-close-souvenir-top');
+            const btnCloseSouvenirBottom = document.getElementById('btn-close-souvenir-bottom');
 
             let isPlaying = false;
             let typewriterTimer = null;
@@ -536,6 +610,44 @@
             customModal.addEventListener('click', (e) => {
                 if (e.target === customModal) {
                     closeModal();
+                }
+            });
+
+            // Fungsi Membuka Pop-up Souvenir
+            function openSouvenirModal() {
+                closeModal();
+                setTimeout(() => {
+                    souvenirModal.classList.remove('hidden');
+                    souvenirModal.classList.add('flex');
+                    
+                    requestAnimationFrame(() => {
+                        souvenirModal.classList.remove('opacity-0');
+                        souvenirBox.classList.remove('scale-95');
+                        souvenirBox.classList.add('scale-100');
+                    });
+                }, 250);
+            }
+
+            // Fungsi Menutup Pop-up Souvenir
+            function closeSouvenirModal() {
+                souvenirModal.classList.add('opacity-0');
+                souvenirBox.classList.remove('scale-100');
+                souvenirBox.classList.add('scale-95');
+
+                setTimeout(() => {
+                    souvenirModal.classList.add('hidden');
+                    souvenirModal.classList.remove('flex');
+                }, 300);
+            }
+
+            // Event Listener Tombol Souvenir & Penutup Modal Souvenir
+            btnOpenSouvenir.addEventListener('click', openSouvenirModal);
+            btnCloseSouvenirTop.addEventListener('click', closeSouvenirModal);
+            btnCloseSouvenirBottom.addEventListener('click', closeSouvenirModal);
+
+            souvenirModal.addEventListener('click', (e) => {
+                if (e.target === souvenirModal) {
+                    closeSouvenirModal();
                 }
             });
         });
